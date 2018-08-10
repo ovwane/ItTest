@@ -35,7 +35,7 @@ class FeedBack(models.Model):
     SalaryRange = models.CharField(max_length=1024, blank=True, null=True, verbose_name="薪资范围")
     InterviewTime = models.DateTimeField(max_length=50, verbose_name='面试时间')
     InterviewPost = models.CharField(max_length=50, verbose_name="面试岗位")
-    InterviewNumb = models.IntegerField(verbose_name="面试次数")
+    InterviewNumb = models.CharField(max_length=50, blank=True, null=True, verbose_name="面试次数")
     CompanyImage = models.TextField(blank=True, null=True, verbose_name="公司印象")
     InterviewerImpression = models.TextField(blank=True, null=True, verbose_name="面试官印象")
     InterviewerLong = models.CharField(max_length=50, verbose_name="面试时长")
