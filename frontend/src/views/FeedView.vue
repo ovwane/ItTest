@@ -201,6 +201,7 @@
     //import NProgress from 'nprogress'
     import { test } from '../api/api';
     import { getFeedList, addFeed} from '../api/api';
+    import moment from "moment"
     // import ElRow from "element-ui/packages/row/src/row";
     export default {
         // components: {ElRow},
@@ -303,7 +304,7 @@
         methods: {
             // 文件大小限制
             beforeAvatarUpload(file){
-                const isLt2M = file.size / 1024 / 1024 < 5
+                const isLt2M = file.size / 1024 / 1024 < 5;
                 if(!isLt2M) {
                     this.$message({
                         message: '上传文件大小不能超过 5MB!',
@@ -365,7 +366,14 @@
                         this.$confirm('确认提交吗？', '提示', {}).then(() => {
                             self.addLoading = true;
                             //NProgress.start();
-                            let params = JSON.stringify(self.addForm);
+                            console.log(typeof self.addForm["InterviewTime"])
+                            let params = self.addForm;
+                            params['InterviewTime'] = moment(params['InterviewTime']).format("YYYY-MM-DD HH:mm:ss");
+                            if (params["outsourcing"] === 'true'){
+                                params["outsourcing"] = true
+                            } else {
+                                params["outsourcing"] = false
+                            }
                             addFeed(params).then(_data => {
                                 let {msg, code, data} = _data;
                                 self.addLoading = false;

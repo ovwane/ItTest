@@ -20,7 +20,7 @@ class BlackListDeserializer(serializers.ModelSerializer):
     """
     class Meta:
         model = BlackList
-        fields = ('id', 'CompanyName', 'CompanyAddress', 'ComplainData', 'createTime')
+        fields = ('CompanyName', 'CompanyAddress', 'ComplainData', 'createTime')
 
 
 class FeedBackSerializer(serializers.ModelSerializer):
@@ -42,12 +42,14 @@ class FeedBackDeserializer(serializers.ModelSerializer):
     """
     面试反馈反序列化
     """
+    WriteQuestion = serializers.CharField(allow_blank=True, allow_null=True, label='文件路径', max_length=1024, required=False)
+
     class Meta:
         model = FeedBack
-        fields = ('id', 'CompanyName', 'CompanyAddress', 'SalaryRange', 'InterviewTime', 'InterviewPost',
+        fields = ('CompanyName', 'CompanyAddress', 'SalaryRange', 'InterviewTime', 'InterviewPost',
                   'InterviewNumb', 'CompanyImage', 'InterviewerImpression', 'InterviewerLong', 'outsourcing',
-                  'outsourcingNature', 'WriteQuestion', 'CommunicationKey', 'InterviewSummaryToCompany', 'welfare',
-                  'InterviewSummaryToPerson')
+                  'outsourcingNature', 'WriteQuestion', 'CommunicationKey', 'InterviewSummaryToCompany',
+                  'InterviewSummaryToPerson', 'welfare')
 
 
 class LinksResourcesSerializer(serializers.ModelSerializer):

@@ -30,8 +30,8 @@ class FeedBack(models.Model):
     面试反馈
     """
     id = models.AutoField(primary_key=True)
-    CompanyName = models.CharField(max_length=128, blank=True, verbose_name="公司名称")
-    CompanyAddress = models.CharField(max_length=1024, blank=True, verbose_name="公司地址")
+    CompanyName = models.CharField(max_length=128, verbose_name="公司名称")
+    CompanyAddress = models.CharField(max_length=1024, verbose_name="公司地址")
     SalaryRange = models.CharField(max_length=1024, blank=True, null=True, verbose_name="薪资范围")
     InterviewTime = models.DateTimeField(max_length=50, verbose_name='面试时间')
     InterviewPost = models.CharField(max_length=50, verbose_name="面试岗位")
@@ -40,8 +40,7 @@ class FeedBack(models.Model):
     InterviewerImpression = models.TextField(blank=True, null=True, verbose_name="面试官印象")
     InterviewerLong = models.CharField(max_length=50, verbose_name="面试时长")
     outsourcing = models.BooleanField(verbose_name="是否外包")
-    outsourcingNature = models.CharField(max_length=50, blank=True, null=True, verbose_name="外包性质",
-                                         choices=(('人力外包', '人力外包'), ('项目外包', '项目外包')))
+    outsourcingNature = models.CharField(max_length=50, blank=True, null=True, verbose_name="外包性质")
     WriteQuestion = models.FileField(upload_to='../data/', blank=True, null=True, verbose_name="笔试题")
     CommunicationKey = models.TextField(blank=True, null=True, verbose_name="沟通重点")
     InterviewSummaryToCompany = models.TextField(blank=True, null=True, verbose_name="总结/公司")

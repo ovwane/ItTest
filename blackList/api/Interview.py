@@ -1,6 +1,7 @@
 import logging
 import os
 import time
+from datetime import datetime
 
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import StreamingHttpResponse
@@ -54,6 +55,7 @@ class InterView(APIView):
         :return:
         """
         data = JSONParser().parse(request)
+        data["InterviewTime"] = datetime.strptime(data["InterviewTime"], "%Y-%m-%d %H:%M:%S")
         feed_serializer = FeedBackDeserializer(data=data)
         if feed_serializer.is_valid():
             # 保持新项目
@@ -70,7 +72,7 @@ class FilePost(APIView):
         _file = request.FILES.get("file")
         if not _file:
             return JsonResponse(code="999998", msg="参数有误")
-        file_to_save = open(os.path.join("data", _file.name), "wb+")
+        file_to_save = open(os.path.join("../data", _file.name), "wb+")
         for chunk in _file.chunks():
             file_to_save.write(chunk)
         file_to_save.close()
