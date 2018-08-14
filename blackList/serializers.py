@@ -1,13 +1,13 @@
 from rest_framework import serializers
 
-from blackList.models import BlackList, FeedBack
+from blackList.models import BlackList, FeedBack, LinksResources
 
 
 class BlackListSerializer(serializers.ModelSerializer):
     """
     黑名单序列化
     """
-    createTime = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+    createTime = serializers.DateTimeField(format="%Y-%m-%d", required=False, read_only=True)
 
     class Meta:
         model = BlackList
@@ -27,7 +27,7 @@ class FeedBackSerializer(serializers.ModelSerializer):
     """
     面试反馈序列化
     """
-    createTime = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+    createTime = serializers.DateTimeField(format="%Y-%m-%d", required=False, read_only=True)
     InterviewTime = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
 
     class Meta:
@@ -48,3 +48,23 @@ class FeedBackDeserializer(serializers.ModelSerializer):
                   'InterviewNumb', 'CompanyImage', 'InterviewerImpression', 'InterviewerLong', 'outsourcing',
                   'outsourcingNature', 'WriteQuestion', 'CommunicationKey', 'InterviewSummaryToCompany', 'welfare',
                   'InterviewSummaryToPerson')
+
+
+class LinksResourcesSerializer(serializers.ModelSerializer):
+    """
+    资源链接序列化
+    """
+    createTime = serializers.DateTimeField(format="%Y-%m-%d", required=False, read_only=True)
+
+    class Meta:
+        model = LinksResources
+        fields = ('id', 'links', 'password', 'remarks', 'createTime', 'status')
+
+
+class LinksResourcesDeserializer(serializers.ModelSerializer):
+    """
+    资源链接反序列化
+    """
+    class Meta:
+        model = LinksResources
+        fields = ('links', 'password', 'remarks')

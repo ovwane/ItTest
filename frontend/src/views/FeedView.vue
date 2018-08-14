@@ -94,10 +94,7 @@
             </el-table-column>
             <el-table-column prop="CompanyAddress" label="公司地址" min-width="28%" sortable show-overflow-tooltip>
             </el-table-column>
-            <el-table-column prop="welfare" label="公司福利" min-width="37%" sortable show-overflow-tooltip>
-                <template slot-scope="scope">
-                    <a v-if="!scope.row.welfare">空</a>
-                </template>
+            <el-table-column prop="InterviewPost" label="面试岗位" min-width="37%" sortable show-overflow-tooltip>-->
             </el-table-column>
             <el-table-column prop="createTime" label="添加时间" min-width="16%" sortable show-overflow-tooltip>
             </el-table-column>

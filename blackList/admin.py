@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.template.defaultfilters import capfirst
 from collections import OrderedDict as SortedDict
 
-from blackList.models import BlackList, FeedBack
+from blackList.models import BlackList, FeedBack, LinksResources
 
 
 def find_model_index(name):
@@ -63,7 +63,7 @@ class FeedBackForm(admin.ModelAdmin):
     list_per_page = 20
     ordering = ('-id',)
     fieldsets = ([
-        '黑名单', {
+        '面试反馈', {
             'fields': ('CompanyName', 'CompanyAddress', 'SalaryRange', 'InterviewTime', 'InterviewPost',
                        'InterviewNumb', 'CompanyImage', 'InterviewerImpression', 'InterviewerLong', 'outsourcing',
                        'outsourcingNature', 'WriteQuestion', 'CommunicationKey', 'InterviewSummaryToCompany',
@@ -73,3 +73,20 @@ class FeedBackForm(admin.ModelAdmin):
 
 
 admin.site.register(FeedBack, FeedBackForm)
+
+
+class LinksResourcesForm(admin.ModelAdmin):
+    search_fields = ('remarks', )
+    list_display = ('id', 'links', 'password', 'remarks', 'createTime', 'status')
+    list_display_links = ('id', 'links', 'password', 'remarks', 'createTime', 'status')
+    list_filter = ('status', )
+    list_per_page = 20
+    ordering = ('-id',)
+    fieldsets = ([
+        '资源链接', {
+            'fields': ('links', 'password', 'remarks', 'status')
+        }],
+    )
+
+
+admin.site.register(LinksResources, LinksResourcesForm)

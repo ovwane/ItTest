@@ -8,9 +8,19 @@
 				<div class="tools" @click.prevent="collapse">
 					<i class="fa fa-align-justify"></i>
 				</div>
+				<!--<strong style="font-size: 15px;color:#fff;padding-left: 10px">-->
+				<!--注：所有信息仅供大家参考，不保证百分百准确性-->
+				<!--</strong>-->
 			</el-col>
 			<el-col :span="4" class="userinfo">
-				QQ群：599733338
+				<div style="float: left">
+					<div class="userinfo-inner" style="height: 23px;float: left">
+					QQ群：599733338
+					</div>
+					<div style="color: #fff; font-size: 5px; float: left">
+						愿所有在群的朋友，能够发挥本群的价值
+					</div>
+				</div>
 			</el-col>
 		</el-col>
 		<el-col :span="24" class="main">
@@ -107,18 +117,10 @@
 			.userinfo {
 				font-size: 20px;
 				text-align: right;
-				padding-right: 35px;
+				padding-right: 0px;
 				float: right;
 				.userinfo-inner {
-					cursor: pointer;
 					color:#fff;
-					img {
-						width: 40px;
-						height: 40px;
-						border-radius: 20px;
-						margin: 10px 0px 10px 10px;
-						float: right;
-					}
 				}
 			}
 			.logo {

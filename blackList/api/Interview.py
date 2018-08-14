@@ -54,7 +54,6 @@ class InterView(APIView):
         :return:
         """
         data = JSONParser().parse(request)
-        data['createAddr'] = request.environ["REMOTE_ADDR"]
         feed_serializer = FeedBackDeserializer(data=data)
         if feed_serializer.is_valid():
             # 保持新项目
