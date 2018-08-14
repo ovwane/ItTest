@@ -42,7 +42,7 @@ class FeedBack(models.Model):
     outsourcing = models.BooleanField(verbose_name="是否外包")
     outsourcingNature = models.CharField(max_length=50, blank=True, null=True, verbose_name="外包性质",
                                          choices=(('人力外包', '人力外包'), ('项目外包', '项目外包')))
-    WriteQuestion = models.FileField(upload_to='./data/', blank=True, null=True, verbose_name="笔试题")
+    WriteQuestion = models.FileField(upload_to='../data/', blank=True, null=True, verbose_name="笔试题")
     CommunicationKey = models.TextField(blank=True, null=True, verbose_name="沟通重点")
     InterviewSummaryToCompany = models.TextField(blank=True, null=True, verbose_name="总结/公司")
     InterviewSummaryToPerson = models.TextField(blank=True, null=True, verbose_name="总结/个人")

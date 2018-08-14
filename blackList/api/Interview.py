@@ -74,7 +74,7 @@ class FilePost(APIView):
         for chunk in _file.chunks():
             file_to_save.write(chunk)
         file_to_save.close()
-        return JsonResponse(code="999999", msg="成功", data="./data/"+_file.name)
+        return JsonResponse(code="999999", msg="成功", data="../data/"+_file.name)
 
 
 def download_doc(request):
