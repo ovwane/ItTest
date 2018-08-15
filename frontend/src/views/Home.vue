@@ -49,6 +49,12 @@
 						</transition>
 					</el-col>
 				</div>
+				<div class="foot">
+					测试逆鳞提供技术上支持、
+					女司机坑姐提供云服务器、
+					逗逼群主逼逼主页面设计、
+					共同组成了本群官方站点
+				</div>
 			</section>
 		</el-col>
 	</el-row>
@@ -103,7 +109,12 @@
 
 <style scoped lang="scss">
 	@import '~scss_vars';
-
+	.foot {
+		background-color: #B3C0D1;
+		color: #333;
+		text-align: center;
+		line-height: 60px;
+	}
 	.container {
 		position: absolute;
 		top: 0px;
@@ -208,6 +219,7 @@
 				padding: 20px;
 				.breadcrumb-container {
 					//margin-bottom: 15px;
+					background-color: #fff;
 					.title {
 						width: 200px;
 						float: left;
