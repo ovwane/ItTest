@@ -17,7 +17,7 @@
 					<div class="userinfo-inner" style="height: 23px;float: left">
 					QQ群：599733338
 					</div>
-					<div style="color: #fff; font-size: 5px; float: left">
+					<div style="color: #fff; font-size: 60%; float: left">
 						愿所有在群的朋友，能够发挥本群的价值
 					</div>
 				</div>
