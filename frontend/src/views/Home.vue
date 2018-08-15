@@ -111,7 +111,7 @@
 	@import '~scss_vars';
 	.foot {
 		background-color: #B3C0D1;
-		color: #333;
+		color: #626066;
 		text-align: center;
 		line-height: 60px;
 	}

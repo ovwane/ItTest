@@ -19,12 +19,16 @@ const router = new VueRouter({
   routes
 });
 
-// router.beforeEach((to, from, next) => {
-//   //NProgress.start();
-//   if (to.path === '/') {
-//     next({ path: '/blackList',})
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  //NProgress.start();
+  if (to.path === '/') {
+    console.log(to.path);
+    next({ path: '/blackList', })
+  } else {
+    next()
+  }
+});
+
 
 //router.afterEach(transition => {
 //NProgress.done();
