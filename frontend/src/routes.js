@@ -1,9 +1,10 @@
-const NotFound = () => import('./views/common/404.vue');
-const Home = () => import('./views/Home.vue');
-const blackList = () => import('./views/blackList.vue');
-const FeedView = () => import('./views/FeedView.vue');
-const Links = () => import('./views/ResourceLink.vue');
-const About = () => import('./views/about.vue');
+/* eslint-disable */
+const NotFound = resolve => require(['./views/common/404.vue'], resolve);
+const Home = resolve => require(['./views/Home.vue'], resolve);
+const blackList = resolve => require(['./views/blackList.vue'], resolve);
+const FeedView = resolve => require(['./views/FeedView.vue'], resolve);
+const Links = resolve => require(['./views/ResourceLink.vue'], resolve);
+const About = resolve => require(['./views/about.vue'], resolve);
 
 let routes = [
     {

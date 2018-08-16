@@ -28,7 +28,7 @@ class FeedBackSerializer(serializers.ModelSerializer):
     面试反馈序列化
     """
     createTime = serializers.DateTimeField(format="%Y-%m-%d", required=False, read_only=True)
-    InterviewTime = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+    InterviewTime = serializers.DateTimeField(format="%Y-%m-%d", required=False, read_only=True)
 
     class Meta:
         model = FeedBack

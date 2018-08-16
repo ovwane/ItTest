@@ -10,7 +10,7 @@
                     <el-button type="primary" @click="getCompanyBlackList">查询</el-button>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click.natvie="handleAdd">新增</el-button>
+                    <el-button type="primary" @click="handleAdd">新增</el-button>
                 </el-form-item>
             </el-form>
         </el-col>
@@ -73,6 +73,7 @@
 </template>
 
 <script>
+/* eslint-disable */
     //import NProgress from 'nprogress'
     import { getBlackList, addBlack} from '../api/api';
     // import ElRow from "element-ui/packages/row/src/row";
@@ -190,6 +191,6 @@
 
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>

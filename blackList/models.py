@@ -39,8 +39,9 @@ class FeedBack(models.Model):
     CompanyImage = models.TextField(blank=True, null=True, verbose_name="公司印象")
     InterviewerImpression = models.TextField(blank=True, null=True, verbose_name="面试官印象")
     InterviewerLong = models.CharField(max_length=50, verbose_name="面试时长")
-    outsourcing = models.BooleanField(verbose_name="是否外包")
-    outsourcingNature = models.CharField(max_length=50, blank=True, null=True, verbose_name="外包性质")
+    outsourcing = models.BooleanField(default=False, verbose_name="是否外包")
+    outsourcingNature = models.CharField(max_length=50, blank=True, null=True, verbose_name="外包性质",
+                                         choices=(('人力外包', '人力外包'), ('项目外包', '项目外包')))
     WriteQuestion = models.FileField(upload_to='../data/', blank=True, null=True, verbose_name="笔试题")
     CommunicationKey = models.TextField(blank=True, null=True, verbose_name="沟通重点")
     InterviewSummaryToCompany = models.TextField(blank=True, null=True, verbose_name="总结/公司")

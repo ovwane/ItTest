@@ -1,66 +1,67 @@
 <template>
-	<el-row class="container">
-		<el-col :span="24" class="header">
-			<el-col :span="10" class="logo" :class="collapsed?'logo-collapse-width':'logo-width'">
-				{{collapsed?'':sysName}}
-			</el-col>
-			<el-col :span="10">
-				<div class="tools" @click.prevent="collapse">
-					<i class="fa fa-align-justify"></i>
-				</div>
-				<!--<strong style="font-size: 15px;color:#fff;padding-left: 10px">-->
-				<!--注：所有信息仅供大家参考，不保证百分百准确性-->
-				<!--</strong>-->
-			</el-col>
-			<el-col :span="4" class="userinfo">
-				<div style="float: left">
-					<div class="userinfo-inner" style="height: 23px;float: left">
-					QQ群：599733338
-					</div>
-					<div style="color: #fff; font-size: 60%; float: left">
-						愿所有在群的朋友，能够发挥本群的价值
-					</div>
-				</div>
-			</el-col>
-		</el-col>
-		<el-col :span="24" class="main">
-			<aside :class="collapsed?'menu-collapsed':'menu-expanded'">
-				<!--导航菜单-->
-				<el-menu :default-active="$route.path" class="el-menu-vertical-demo" @select="handleselect"
-						 unique-opened router v-if="!collapsed">
-					<template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
-						<el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden"><i :class="child.iconCls"></i>{{child.name}}</el-menu-item>
-					</template>
-				</el-menu>
-			</aside>
-			<section class="content-container">
-				<div class="grid-content bg-purple-light">
-					<el-col :span="24" class="breadcrumb-container">
-						<strong class="title">{{$route.name}}</strong>
-						<el-breadcrumb separator="/" class="breadcrumb-inner">
-							<el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
-								{{ item.name }}
-							</el-breadcrumb-item>
-						</el-breadcrumb>
-					</el-col>
-					<el-col :span="24" class="content-wrapper">
-						<transition name="fade" mode="out-in">
-							<router-view></router-view>
-						</transition>
-					</el-col>
-				</div>
-				<div class="foot">
-					测试逆鳞提供技术上支持、
-					女司机坑姐提供云服务器、
-					逗逼群主逼逼主页面设计、
-					共同组成了本群官方站点
-				</div>
-			</section>
-		</el-col>
-	</el-row>
+    <el-row class="container">
+        <el-col :span="24" class="header">
+            <el-col :span="10" class="logo" :class="collapsed?'logo-collapse-width':'logo-width'">
+                {{collapsed?'':sysName}}
+            </el-col>
+            <el-col :span="10">
+                <div class="tools" @click.prevent="collapse">
+                <i class="fa fa-align-justify"></i>
+            </div>
+                <!--<strong style="font-size: 15px;color:#fff;padding-left: 10px">-->
+                <!--注：所有信息仅供大家参考，不保证百分百准确性-->
+                <!--</strong>-->
+            </el-col>
+            <el-col :span="4" class="userinfo">
+                <div style="float: left">
+                    <div class="userinfo-inner" style="height: 23px;float: left">
+                        QQ群：599733338
+                    </div>
+                    <div style="color: #fff; font-size: 60%; float: left">
+                        愿所有在群的朋友，能够发挥本群的价值
+                    </div>
+                </div>
+            </el-col>
+        </el-col>
+        <el-col :span="24" class="main">
+            <aside :class="collapsed?'menu-collapsed':'menu-expanded'">
+                <!--导航菜单-->
+                <el-menu :default-active="$route.path" class="el-menu-vertical-demo" @select="handleselect"
+                         unique-opened router v-if="!collapsed">
+                    <template v-for="(item) in $router.options.routes" v-if="!item.hidden">
+                        <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden"><i :class="child.iconCls"></i>{{child.name}}</el-menu-item>
+                    </template>
+                </el-menu>
+            </aside>
+            <section class="content-container">
+                <div class="grid-content bg-purple-light">
+                    <el-col :span="24" class="breadcrumb-container">
+                        <strong class="title">{{$route.name}}</strong>
+                        <el-breadcrumb separator="/" class="breadcrumb-inner">
+                            <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
+                                {{ item.name }}
+                            </el-breadcrumb-item>
+                        </el-breadcrumb>
+                    </el-col>
+                    <el-col :span="24" class="content-wrapper">
+                        <transition name="fade" mode="out-in">
+                            <router-view></router-view>
+                        </transition>
+                    </el-col>
+                </div>
+                <div class="foot">
+                    测试逆鳞提供技术上支持、
+                    女司机坑姐提供云服务器、
+                    逗逼群主逼逼主页面设计、
+                    共同组成了本群官方站点
+                </div>
+            </section>
+        </el-col>
+    </el-row>
 </template>
 
 <script>
+/* eslint-disable */
     export default {
         data() {
             return {

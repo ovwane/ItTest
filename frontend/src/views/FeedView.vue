@@ -62,7 +62,7 @@
                         </el-col>
                         <el-col :span="12">
                             <el-form-item label="外包性质： ">
-                                <span>{{ props.row.outsourcingNature? props.row.outsourcingNature: "空"}}</span>
+                                <span>{{ props.row.outsourcing? props.row.outsourcingNature: "空"}}</span>
                             </el-form-item>
                         </el-col>
                         <el-form-item label="笔试题： ">
@@ -98,7 +98,7 @@
             </el-table-column>
             <el-table-column prop="createTime" label="添加时间" min-width="16%" sortable show-overflow-tooltip>
             </el-table-column>
-            <el-table-column label="操作" min-width="10%">
+            <el-table-column label="面试题" min-width="10%">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" @click="handleDownload(scope.row.WriteQuestion)" v-if="scope.row.WriteQuestion">下载</el-button>
                     <span  v-if="!scope.row.WriteQuestion">空</span>
@@ -198,10 +198,10 @@
 </template>
 
 <script>
+/* eslint-disable */
     //import NProgress from 'nprogress'
     import { test } from '../api/api';
     import { getFeedList, addFeed} from '../api/api';
-    import moment from "moment"
     // import ElRow from "element-ui/packages/row/src/row";
     export default {
         // components: {ElRow},
@@ -368,7 +368,6 @@
                             //NProgress.start();
                             console.log(typeof self.addForm["InterviewTime"])
                             let params = self.addForm;
-                            params['InterviewTime'] = moment(params['InterviewTime']).format("YYYY-MM-DD HH:mm:ss");
                             if (params["outsourcing"] === 'true'){
                                 params["outsourcing"] = true
                             } else {
@@ -417,6 +416,6 @@
 
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>
