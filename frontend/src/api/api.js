@@ -1,8 +1,8 @@
 /* eslint-disable */
 import axios from 'axios';
 
-// export const test = 'http://127.0.0.1:8000';
-export const test = 'http://47.98.49.70:8000';
+export const test = 'http://127.0.0.1:8000';
+// export const test = 'http://47.98.49.70:8000';
 // 获取公司黑名单
 export const getBlackList =  (headers, params) => {
     return axios.get(`${test}/api/company/blackList`, { params: params, headers:headers}).then(res => res.data); };
