@@ -202,6 +202,7 @@
     //import NProgress from 'nprogress'
     import { test } from '../api/api';
     import { getFeedList, addFeed} from '../api/api';
+    // import moment from "moment"
     // import ElRow from "element-ui/packages/row/src/row";
     export default {
         // components: {ElRow},
@@ -368,6 +369,7 @@
                             //NProgress.start();
                             console.log(typeof self.addForm["InterviewTime"])
                             let params = self.addForm;
+                            params["InterviewTime"] = moment(params["InterviewTime"]).format("YYYY-MM-DD HH:mm:ss");
                             if (params["outsourcing"] === 'true'){
                                 params["outsourcing"] = true
                             } else {
