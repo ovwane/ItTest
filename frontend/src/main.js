@@ -13,13 +13,14 @@ import "babel-polyfill"
 Vue.config.productionTip = false;
 
 Vue.use(ELEMENT);
+Vue.use(MINT);
 Vue.use(VueRouter);
 Vue.use(Vuex);
 
 //NProgress.configure({ showSpinner: false });
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes
 });
 

@@ -5,6 +5,7 @@ const blackList = resolve => require(['./views/blackList.vue'], resolve);
 const FeedView = resolve => require(['./views/FeedView.vue'], resolve);
 const Links = resolve => require(['./views/ResourceLink.vue'], resolve);
 const About = resolve => require(['./views/about.vue'], resolve);
+const MHome = resolve => require(['./MViews/Home.vue'], resolve);
 
 let routes = [
     {
@@ -26,6 +27,20 @@ let routes = [
             { path: '/About', component: About, iconCls:'el-icon-info', name: '关于我们'},
             // { path: '/robot', component: robot, iconCls:'fa fa-id-card-o', name: '消息机器人', meta: { keepAlive: false }},
             ]
+    },
+    {
+      path: '/m',
+      component: MHome,
+      name: '',
+      projectHidden: true,
+      M: true,
+      children: [
+          { path: '/m/blackList', component: blackList, iconCls:'el-icon-bell', name: '先人指路'},
+          { path: '/m/FeedView', component: FeedView, iconCls:'el-icon-message', name: '金玉良言'},
+          { path: '/m/Resource', component: Links, iconCls:'el-icon-share', name: '无私奉献'},
+          { path: '/m/About', component: About, iconCls:'el-icon-info', name: '关于我们'},
+          // { path: '/robot', component: robot, iconCls:'fa fa-id-card-o', name: '消息机器人', meta: { keepAlive: false }},
+          ]
     },
 ];
 
