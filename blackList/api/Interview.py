@@ -72,11 +72,11 @@ class FilePost(APIView):
         _file = request.FILES.get("file")
         if not _file:
             return JsonResponse(code="999998", msg="参数有误")
-        file_to_save = open(os.path.join("../data", _file.name+str(int(time.time()))), "wb+")
+        file_to_save = open(os.path.join("../data", str(int(time.time()))+_file.name), "wb+")
         for chunk in _file.chunks():
             file_to_save.write(chunk)
         file_to_save.close()
-        return JsonResponse(code="999999", msg="成功", data="../data/"+_file.name+str(int(time.time())))
+        return JsonResponse(code="999999", msg="成功", data="../data/"+str(int(time.time()))+_file.name)
 
 
 def download_doc(request):
