@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
   //NProgress.start();
   if (to.path === '/') {
     console.log(to.path);
-    next({ path: '/blackList', })
+    next({ path: '/FeedView', })
   } else {
     next()
   }
