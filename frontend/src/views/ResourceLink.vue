@@ -103,8 +103,6 @@
         } else {
           callback(new Error('请输入有效的链接地址！'));
         }
-
-
       };
       return {
         filters: {

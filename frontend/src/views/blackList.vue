@@ -114,7 +114,7 @@
             }
         },
         methods: {
-            // 获取项目列表
+            // 列表
             getCompanyBlackList() {
                 this.listLoading = true;
                 let self = this;
